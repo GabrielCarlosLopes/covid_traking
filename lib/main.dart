@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-void main() {
+import '../../core/router/router.dart';
+import '../../theme/theme.dart';
+import 'di/injector.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDependencies();
   runApp(const MyApp());
 }
 
@@ -9,14 +15,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Covid traking',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Container(),
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      routerConfig: router,
     );
   }
 }
