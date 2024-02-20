@@ -59,10 +59,11 @@ class _MoreDetailsScreenState extends State<MoreDetailsScreen> {
                     leading: Hero(
                       tag: state.name!,
                       child: CircleAvatar(
-                          backgroundImage: NetworkImage(state.image!),
-                          onBackgroundImageError: (exception, stackTrace) {
-                            const Icon(Icons.error_outline_sharp);
-                          }),
+                        backgroundImage: NetworkImage(state.image!),
+                        onBackgroundImageError: (exception, stackTrace) {
+                          const Icon(Icons.error_outline_sharp);
+                        },
+                      ),
                     ),
                     title: Text(
                       state.name!,
