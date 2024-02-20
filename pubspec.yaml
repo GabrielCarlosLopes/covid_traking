@@ -19,6 +19,7 @@ dependencies:
   http: ^1.2.0
   localstorage: ^4.0.1+4
   mobx: ^2.3.0+1
+  device_info_plus: ^9.1.2
 
 dev_dependencies:
   build_runner: ^2.4.8

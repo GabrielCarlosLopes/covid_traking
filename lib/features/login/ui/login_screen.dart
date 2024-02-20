@@ -16,6 +16,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final LoginStore loginStore = GetIt.I<LoginStore>();
 
   @override
+  void dispose() {
+    super.dispose();
+    loginStore.redirect = null;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
