@@ -1,7 +1,9 @@
+import 'package:go_router/go_router.dart';
+
 import 'package:covid_traking/features/home/ui/ui.dart';
 import 'package:covid_traking/features/login/ui/ui.dart';
+import 'package:covid_traking/features/more_details/ui/ui.dart';
 import 'package:covid_traking/features/splash/ui/ui.dart';
-import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
   routes: [
@@ -16,6 +18,10 @@ final router = GoRouter(
     GoRoute(
       path: '/home',
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/more-details',
+      builder: (context, state) => const MoreDetailsScreen(),
     ),
   ],
 );

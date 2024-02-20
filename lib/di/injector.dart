@@ -3,6 +3,9 @@ import 'package:covid_traking/features/home/data/usecases/get_device_information
 import 'package:covid_traking/features/home/data/usecases/remote_get_current_covid_infos.dart';
 import 'package:covid_traking/features/home/presenter/controllers/home_store.dart';
 import 'package:covid_traking/features/login/presenter/controllers/login_store.dart';
+import 'package:covid_traking/features/more_details/data/usecases/remote_get_list_current.dart';
+import 'package:covid_traking/features/more_details/data/usecases/remote_get_list_info.dart';
+import 'package:covid_traking/features/more_details/presenter/controllers/controllers.dart';
 import 'package:covid_traking/features/splash/data/usecases/usecases.dart';
 import 'package:covid_traking/features/splash/presenter/controllers/splash_store.dart';
 import 'package:covid_traking/infra/cache/local_storage_adapter.dart';
@@ -42,6 +45,11 @@ Future<void> initializeDependencies() async {
   di.registerSingleton(RemoteGetCurrentCovidInfos(
       httpClient: di<HttpAdapter>(), url: '$baseUrl/us/current.json'));
 
+  di.registerSingleton(RemoteGetListInfo(
+      httpClient: di<HttpAdapter>(), url: '$baseUrl/states/info.json'));
+
+  di.registerSingleton(RemoteGetListCurrent(
+      httpClient: di<HttpAdapter>(), url: '$baseUrl/states/current.json'));
   //controllers
 
   di.registerSingleton(
@@ -56,4 +64,8 @@ Future<void> initializeDependencies() async {
     di<RemoteGetCurrentCovidInfos>(),
     di<LocalStorageAdapter>(),
   ));
+
+  di.registerSingleton(MoreDetailsStore(
+      remoteGetListCurrent: di<RemoteGetListCurrent>(),
+      remoteGetListInfo: di<RemoteGetListInfo>()));
 }
