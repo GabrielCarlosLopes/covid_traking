@@ -27,6 +27,8 @@ class RemoteGetListCurrent implements GetListCurrent {
                   '$baseFlagsUrl/${state.name!.toLowerCase().replaceAll(' ', '-')}-small.png',
               totalCases: element['total'],
               lastModified: element['lastUpdateEt'],
+              x: state.x,
+              notes: state.notes,
             ));
           }
         }

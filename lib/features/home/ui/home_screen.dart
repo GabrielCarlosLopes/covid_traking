@@ -398,8 +398,10 @@ class BottomHomeWidget extends StatelessWidget {
                           title: 'Casos totales',
                           value: homeStore.covidInfosModel?.total.toString() ??
                               '0'),
-                      const CardInfos(
-                          title: 'Casos confirmados', value: '1000'),
+                      CardInfos(
+                          title: 'Casos confirmados',
+                          value: homeStore.covidInfosModel?.total.toString() ??
+                              '0'),
                       CardInfos(
                           title: 'Pruebas negativas',
                           value:

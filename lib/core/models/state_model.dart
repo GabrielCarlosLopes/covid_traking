@@ -6,13 +6,18 @@ class StateModel {
   final String? image;
   final int? totalCases;
   final String? lastModified;
+  final String? notes;
+  final String? x;
 
-  StateModel(
-      {required this.name,
-      required this.state,
-      required this.image,
-      required this.totalCases,
-      required this.lastModified});
+  StateModel({
+    required this.name,
+    required this.state,
+    required this.image,
+    required this.totalCases,
+    required this.lastModified,
+    required this.x,
+    required this.notes,
+  });
 
   factory StateModel.fromJson(Map<String, dynamic> json) {
     return StateModel(
@@ -21,6 +26,8 @@ class StateModel {
       image: json['image'],
       totalCases: json['totalCases'],
       lastModified: json['lastModified'],
+      x: json['twitter'],
+      notes: json['notes'],
     );
   }
 
@@ -31,6 +38,8 @@ class StateModel {
       'image': image,
       'totalCases': totalCases,
       'lastModified': lastModified,
+      'x': x,
+      'notes': notes,
     };
   }
 
@@ -41,6 +50,8 @@ class StateModel {
       image: image,
       totalCases: totalCases,
       lastModified: lastModified,
+      x: x,
+      notes: notes,
     );
   }
 
@@ -51,6 +62,8 @@ class StateModel {
       image: entity.image,
       totalCases: entity.totalCases,
       lastModified: entity.lastModified,
+      x: entity.x,
+      notes: entity.notes,
     );
   }
 }

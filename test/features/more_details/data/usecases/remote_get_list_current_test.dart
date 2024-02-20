@@ -19,6 +19,8 @@ void main() {
         image: faker.image.image(),
         totalCases: faker.randomGenerator.integer(100),
         lastModified: faker.date.dateTime().toString(),
+        x: faker.internet.httpUrl(),
+        notes: faker.lorem.sentence(),
       );
 
   setUp(() {

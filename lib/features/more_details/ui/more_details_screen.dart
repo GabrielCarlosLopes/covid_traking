@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../di/injector.dart';
 import '../presenter/controllers/controllers.dart';
@@ -42,22 +43,42 @@ class _MoreDetailsScreenState extends State<MoreDetailsScreen> {
                 return Card(
                   color: Colors.white70,
                   child: ListTile(
-                    trailing: const Icon(Icons.arrow_forward_ios_rounded),
-                    leading: CircleAvatar(
-                        backgroundImage: NetworkImage(state.image!),
-                        onBackgroundImageError: (exception, stackTrace) {
-                          const Icon(Icons.error_outline_sharp);
-                        }),
-                    title: Text(state.name!),
+                    onTap: () =>
+                        context.pushNamed('region-details', queryParameters: {
+                      'name': state.name!,
+                      'state': state.state!,
+                      'urlImage': state.image!,
+                      'totalCases': state.totalCases.toString(),
+                      'x': state.x ?? '',
+                      'notes': state.notes!,
+                    }),
+                    trailing: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Colors.black,
+                    ),
+                    leading: Hero(
+                      tag: state.name!,
+                      child: CircleAvatar(
+                          backgroundImage: NetworkImage(state.image!),
+                          onBackgroundImageError: (exception, stackTrace) {
+                            const Icon(Icons.error_outline_sharp);
+                          }),
+                    ),
+                    title: Text(
+                      state.name!,
+                      style: const TextStyle(color: Colors.black),
+                    ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Casos totals: ${state.totalCases.toString()}',
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.black),
                         ),
                         Text(
                           'Ultima modificación: ${state.lastModified}',
+                          style: const TextStyle(color: Colors.black),
                         ),
                       ],
                     ),
