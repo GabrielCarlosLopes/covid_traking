@@ -53,7 +53,3 @@ To install and run the application:
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests to contribute to the development of this application.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
